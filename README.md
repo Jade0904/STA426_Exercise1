@@ -1,6 +1,6 @@
 #### DEMO
 
-This is my first exercise in the course STA426, and I *really* want to do it perfectly.
+This is my first exercise in the course __STA426__, and I *really* want to do it perfectly.
 
 To get a great start in ETH Zurich, I have to use the [ETH moodle](https://moodle-app2.let.ethz.ch/my/). It is a very useful tool for my master study.
 
