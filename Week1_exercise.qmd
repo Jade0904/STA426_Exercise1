@@ -1,0 +1,47 @@
+---
+title: "Week 1"
+author: "Jade0904"
+format: html
+editor: visual
+---
+
+
+### Generate random data and make plots
+
+Sample 100 values from a log-normal distribution.
+
+```{r}
+data <- rlnorm(100, meanlog = 5, sdlog = 0.5)
+```
+
+```{r}
+mean <- mean(data)
+standard_deviation <- sd(data)
+```
+
+Mean of the sampled values is `r mean`, and standard deviation is `r standard_deviation`.
+
+### Plots
+
+Create a histogram on the linear scale.
+
+```{r}
+library(ggplot2)
+hist(data)
+```
+
+Create a histogram on the log scale.
+
+```{r}
+hist(log(data))
+```
+
+Create a violin plot.
+
+```{r}
+p <- ggplot(data = NULL, aes(x = "", y = data)) +
+  geom_violin() +
+  labs(y = "Log-normal Data") +
+  theme_minimal()
+p
+```
