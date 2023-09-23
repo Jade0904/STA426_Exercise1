@@ -11,6 +11,7 @@ editor: visual
 Sample 100 values from a log-normal distribution.
 
 ```{r}
+set.seed(42)
 data <- rlnorm(100, meanlog = 5, sdlog = 0.5)
 ```
 
@@ -27,20 +28,30 @@ Create a histogram on the linear scale.
 
 ```{r}
 library(ggplot2)
-hist(data)
+#hist(data)
+data_df <- data.frame(data)
+p <- ggplot(data = data_df, aes(x=data)) +
+  geom_histogram(binwidth = 20, fill = "forestgreen", color = "floralwhite") +
+  labs(x = "Value", y = "Frequency", title = "Histogram on the Linear Scale")
+p
 ```
 
 Create a histogram on the log scale.
 
 ```{r}
-hist(log(data))
+#hist(log(data))
+p <- ggplot(data = data_df, aes(x=data)) +
+  geom_histogram(binwidth = 0.1, fill = "forestgreen", color = "floralwhite") +
+  labs(x = "Value", y = "Frequency", title = "Histogram on the Log Scale") +
+  scale_x_log10()
+p
 ```
 
 Create a violin plot.
 
 ```{r}
 p <- ggplot(data = NULL, aes(x = "", y = data)) +
-  geom_violin() +
+  geom_violin(fill = "forestgreen", color = "floralwhite") +
   labs(y = "Log-normal Data") +
   theme_minimal()
 p
